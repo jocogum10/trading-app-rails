@@ -1,0 +1,37 @@
+<h1>Transaction - Create New</h1>
+<hr class="my-4">
+<%= form_with scope: :transaction, url: create_transaction_path, local: true do |f| %>
+    
+    <p>
+        <% if @transaction.errors.any? %>
+            <ul>
+                <% @transaction.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        <% end %>
+    </p>
+    
+    <p>
+    <%= f.label :stock_symbol %>
+    <%= f.text_field :stock_symbol %>
+    </p>
+    
+    <p>
+    <%= f.label :price %>
+    <%= f.text_area :price %>
+    </p>
+
+    <p>
+    <%= f.label :lot_size %>
+    <%= f.text_area :lot_size %>
+    </p>
+
+    <p>
+    <%= f.label :transaction_type %>
+    <%= f.text_area :transaction_type %>
+    </p>
+    
+
+    <%= f.submit "Create" %>
+<% end %>
