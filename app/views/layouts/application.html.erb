@@ -33,7 +33,7 @@
           </ul>
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link disabled" href="#"><%= current_user.email %> </a>
+              <a class="nav-link disabled" href="#">Welcome <%= current_user.is_approved %> <%= current_user.role %>: <%= current_user.email %></a>
             </li>
             <li class="nav-item">
               <%= link_to "Log out", destroy_user_session_path, class: "btn btn-danger", role: "button", 'data-turbo-method': :delete %>
