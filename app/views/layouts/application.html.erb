@@ -13,54 +13,25 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <%= link_to "Trading App", root_path, class: "navbar-brand" %>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          
-
-          <% if user_signed_in? %>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <%= link_to "Transactions", root_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Profile", root_path, class: "nav-link" %>
-            </li>
-          </ul>
-          <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Welcome <%= current_user.is_approved %> <%= current_user.role %>: <%= current_user.email %></a>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, class: "btn btn-danger", role: "button", 'data-turbo-method': :delete %>
-            </li>
-          </ul>
-          <% else %>
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item me-3">
-                <%= link_to "Log in", new_user_session_path, {class: "btn btn-outline-primary", role: "button"} %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Sign up", new_user_registration_path, {class: "btn btn-outline-primary" , role: "button"} %>
-              </li>
-          </ul>
-          <% end %>
-
-          
-        </div>
-      </div>
-    </nav>
+    <%= render "layouts/header" %>
 
     
     <div class="container-fluid">
+      <% if notice %>
+        <div class="alert alert-warning alert-dismissible fade show mt-1" role="alert">
+          <strong><%= notice %></strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
+          <strong><%= alert %></strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
 
       <%= yield %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      
     </div>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
