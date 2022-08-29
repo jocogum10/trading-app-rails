@@ -1,0 +1,11 @@
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Rails Trading App</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">This trading app is a full-stack app built using Ruby on Rails.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <%= link_to "Home", pages_home_path, class:"btn btn-primary btn-lg", role: "button" %>
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-primary btn-lg", role: "button" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-outline-primary btn-lg" , role: "button" %>
+        </div>
+    </div>
+</div>

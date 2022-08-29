@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
+  
+  has_many :transactions
 
   enum role: [:trader, :admin]
   enum is_approved: [:not_verified, :verified]

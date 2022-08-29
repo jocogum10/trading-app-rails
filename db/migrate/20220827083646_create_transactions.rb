@@ -5,6 +5,7 @@ class CreateTransactions < ActiveRecord::Migration[7.0]
       t.integer :price
       t.integer :lot_size
       t.string :transaction_type
+      t.integer :user_id
 
       t.timestamps
     end

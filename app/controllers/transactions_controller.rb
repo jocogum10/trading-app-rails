@@ -1,11 +1,17 @@
 class TransactionsController < ApplicationController
     before_action :authenticate_user!
+    before_action :get_user
     def index
-        @transactions = Transaction.all
+        puts @user.role
+        if @user.role == 'admin'
+            @transactions = Transaction.all
+        else
+            @transactions = @user.transactions
+        end
     end
 
     def create
-        @transaction = Transaction.create(transaction_params)
+        @transaction = @user.transactions.create(transaction_params)
 
         if @transaction.save
             redirect_to transactions_path
@@ -15,16 +21,19 @@ class TransactionsController < ApplicationController
     end
 
     def new
-        @transaction = Transaction.new
+        @transaction = @user.transactions.new
     end
 
     def delete
-        @transaction = Transaction.find(params[:id])
+        @transaction = @user.transactions.find(params[:id])
         @transaction.destroy
         redirect_to transactions_path
     end
 
     private
+    def get_user
+        @user = User.find_by(id:current_user)
+    end
 
     def transaction_params
         params.require(:transaction).permit(:stock_symbol, :price, :lot_size, :transaction_type)
