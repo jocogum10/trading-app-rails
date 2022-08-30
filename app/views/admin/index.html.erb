@@ -1,0 +1,58 @@
+<div class="table-responsive mx-3">
+    <table class="table align-middle caption-top">
+    <caption>List of Users</caption>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Approved</th>
+                <th scope="col">Created</th>
+                <th scope="col">Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+                <tr scope="row">
+                    <td><%= user.id %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.role %></td>
+                    <td><%= user.is_approved %></td>
+                    <td><%= user.created_at %></td>
+                    <td><%= user.updated_at %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<div class="table-responsive mx-3">
+    <table class="table align-middle caption-top">
+    <caption>List of transactions</caption>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">User ID</th>
+                <th scope="col">User Email</th>
+                <th scope="col">Stock Symbol</th>
+                <th scope="col">Price</th>
+                <th scope="col">Lot Size</th>
+                <th scope="col">Transaction Type</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @transactions.each do |transaction| %>
+                <tr scope="row">
+                    <td><%= transaction.id %></td>
+                    <td><%= transaction.user_id %></td>
+                    <td><%= transaction.user.email %></td>
+                    <td><%= transaction.stock_symbol %></td>
+                    <td><%= transaction.price %></td>
+                    <td><%= transaction.lot_size %></td>
+                    <td><%= transaction.transaction_type %></td>
+                    <td><%= button_to "Delete", delete_transaction_path(transaction.id), {method: :delete, class: "btn btn-danger"}  %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

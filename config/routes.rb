@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  authenticated :user, ->(user) { user.admin? } do
+    get 'admin', to: "admin#index"
+    get 'admin/users', to: "admin#users"
+    get 'admin/show_user', to: "admin#show_user"
+  end
   devise_for :users
   root "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

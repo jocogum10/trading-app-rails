@@ -30,30 +30,3 @@
 </div>
 <%= button_to '+ New Transaction' , new_transaction_path, {method: :get, class: "btn btn-primary"} %>
 
-<div class="table-responsive mx-3">
-    <table class="table align-middle caption-top">
-    <caption>List of transactions</caption>
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Email</th>
-                <th scope="col">Role</th>
-                <th scope="col">Approved</th>
-                <th scope="col">Created</th>
-                <th scope="col">Updated</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @users.each do |user| %>
-                <tr scope="row">
-                    <td><%= user.id %></td>
-                    <td><%= user.email %></td>
-                    <td><%= user.role %></td>
-                    <td><%= user.is_approved %></td>
-                    <td><%= user.created_at %></td>
-                    <td><%= user.updated_at %></td>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
-</div>

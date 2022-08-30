@@ -2,8 +2,7 @@ class TransactionsController < ApplicationController
     before_action :authenticate_user!
     before_action :get_user
     def index
-        puts @user.role
-        if @user.role == 'admin'
+        if @user.admin?
             @transactions = Transaction.all
             @users = User.all
         else
