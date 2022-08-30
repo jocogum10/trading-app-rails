@@ -5,6 +5,7 @@ class TransactionsController < ApplicationController
         puts @user.role
         if @user.role == 'admin'
             @transactions = Transaction.all
+            @users = User.all
         else
             @transactions = @user.transactions
         end

@@ -1,16 +1,32 @@
-<h2>Resend confirmation instructions</h2>
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5">
+        <div class="col-10 col-sm-8 col-lg-6 d-flex flex-column justify-content-center">
+          <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            
+            <h1 class="h3 mb-3 fw-normal">Resend confirmation instructions</h1>
+            <div class="mb-3">
+              <%= f.label :email, for: "email", class:"form-label" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class:"form-control", id:"email" %>
+            </div>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="actions">
+              <%= f.submit "Resend confirmation instructions", class: "btn btn-primary" %>
+            </div>
+          <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
+          <%= render "devise/shared/links" %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">Rails Trading App</h1>
+            <p class="lead">A trading platform where you can buy and sell stocks!</p>
+            <p class="lead">Built using Ruby on Rails!</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <%= link_to "About", pages_about_path, class:"btn btn-primary btn-lg", role: "button" %>
+            </div>
+        </div>
+
+    </div>
+</div>
