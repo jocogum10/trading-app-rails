@@ -2,6 +2,7 @@
     <div class="row flex-lg-row-reverse align-items-center g-5">
         <div class="col-10 col-sm-8 col-lg-6 d-flex flex-column justify-content-center">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
 
             <h1 class="h3 mb-3 fw-normal">Please Log In</h1>
             

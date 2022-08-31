@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   authenticated :user, ->(user) { user.admin? } do
     get 'admin', to: "admin#index"
-    get 'admin/users', to: "admin#users"
-    get 'admin/show_user', to: "admin#show_user"
+    get 'admin/show_user/:id', to: "admin#show_user"
+    get 'admin/new_user', to: "admin#new_user"
+    post 'admin/', to: "admin#create_user"
   end
   devise_for :users
   root "pages#home"

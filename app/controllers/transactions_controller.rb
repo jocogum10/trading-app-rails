@@ -2,11 +2,12 @@ class TransactionsController < ApplicationController
     before_action :authenticate_user!
     before_action :get_user
     def index
-        if @user.admin?
-            @transactions = Transaction.all
-            @users = User.all
-        else
+        if @user.trader?
             @transactions = @user.transactions
+        elsif @user.admin?
+            redirect_to admin_path
+        else
+            raise ActionController::RoutingError.new('Not Found')
         end
     end
 
@@ -33,6 +34,11 @@ class TransactionsController < ApplicationController
     private
     def get_user
         @user = User.find_by(id:current_user)
+        if @user.admin?
+            redirect_to admin_path
+        elsif @user.nil?
+            raise ActionController::RoutingError.new('Not Found')
+        end
     end
 
     def transaction_params
