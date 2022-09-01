@@ -1,2 +1,41 @@
-<h1>Admin#new_user</h1>
-<p>Find me in app/views/admin/new_user.html.erb</p>
+<% provide(:title, "New User") %>
+<%= form_with scope: :user, url: create_user_path, method: :post, local: true do |f| %>
+
+    <h1 class="h3 mb-3 fw-normal mx-3 mt-2">User - Create New</h1>
+    
+    <p>
+        <% if @user.errors.any? %>
+            <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        <% end %>
+    </p>
+    
+    <div class="mb-3">
+        <%= f.label :email, for: "email", class:"form-label" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"email" %>
+    </div>
+
+    <div class="mb-3">
+        <%= f.label :password, for: "password", class:"form-label" %>
+        <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"password" %>
+        <% if @minimum_password_length %>
+        <div id="emailHelp" class="form-text">(<%= @minimum_password_length %> characters minimum)</div>
+        <% end %>
+    </div>
+
+    <div class="mb-3">
+        <%= f.label :password_confirmation, for: "password_confirm", class:"form-label" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id:"password_confirm" %>
+    </div>
+
+    <div class="mb-3">
+    <%= f.label :role, for: "role", class:"form-label" %>
+    <%= f.select :role, options_for_select([ "admin", "trader" ], "trader"), {}, {class: "form-select", id:"role"} %>
+    </div>
+    
+
+    <%= f.submit "Create", class:"btn btn-primary" %>
+<% end %>

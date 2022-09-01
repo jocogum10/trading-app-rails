@@ -14,16 +14,25 @@ class AdminController < ApplicationController
   end
   
   def create_user
+    @user = User.create(user_params)
+
+    if @user.save
+        redirect_to dashboard_path
+    else
+        render :new
+    end
   end
 
   private
-    def get_user
-        @user = User.find_by(id:current_user)
-        if @user.trader?
-          @transactions = @user.transactions
-          redirect_to transactions_path
-        elsif @user.nil?
-          raise ActionController::RoutingError.new('Not Found')
-        end
-    end
+  def get_user
+      if User.find_by(id:current_user).trader?
+        redirect_to transactions_path
+      elsif User.find_by(id:current_user).nil?
+        raise ActionController::RoutingError.new('Not Found')
+      end
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :role, :password, :password_confirmation)
+  end
 end

@@ -1,14 +1,13 @@
-<h1>Admin#show_user</h1>
-<p>Find me in app/views/admin/show_user.html.erb</p>
-
-
-<div class="card">
-        <div class="card-header">
-            <%= @user.id %> | <%= @user.email %>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title"><%= @user.role %></h5>
-            <p class="card-text"><%= @user.is_approved %></p>
-            <p class="card-text"><%= @user.unconfirmed_email %></p>
-        </div>
+<% provide(:title, "User") %>
+<div class="row m-2">
+    <div class="card">
+            <div class="card-header">
+                <%= @user.id %> | <%= @user.email %>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%= @user.role %></h5>
+                <p class="card-text"><%= @user.is_approved %></p>
+                <p class="card-text"><%= @user.unconfirmed_email %></p>
+            </div>
+    </div>
 </div>

@@ -33,10 +33,9 @@ class TransactionsController < ApplicationController
 
     private
     def get_user
-        @user = User.find_by(id:current_user)
-        if @user.admin?
-            redirect_to admin_path
-        elsif @user.nil?
+        if User.find_by(id:current_user).admin?
+            redirect_to dashboard_path
+        elsif User.find_by(id:current_user).nil?
             raise ActionController::RoutingError.new('Not Found')
         end
     end
