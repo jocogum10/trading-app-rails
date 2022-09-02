@@ -35,6 +35,16 @@ class AdminController < ApplicationController
     end
   end
 
+  def edit_user
+    @user = User.find(params[:id])
+  end
+
+  def update_user
+    @user = User.find(params[:id])
+    @user.update(email: params[:user][:email], role: params[:user][:role], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+    redirect_to dashboard_path
+  end
+
   private
   def get_user
       if User.find_by(id:current_user).role == 'trader'

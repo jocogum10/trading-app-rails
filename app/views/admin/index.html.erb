@@ -50,9 +50,6 @@
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>
                         <th scope="col">Approved</th>
-                        <th scope="col">Created At</th>
-                        <th scope="col">Confirmed At</th>
-                        <th scope="col">Confirmation Token</th>
                         <th scope="col" colspan="2">Action</th>
                     </tr>
                 </thead>
@@ -67,11 +64,12 @@
                             <% else %>
                                 <td class="text-danger"><%= user.is_approved %></td>
                             <% end %>
-                            <td><%= user.created_at %></td>
-                            <td><%= user.confirmed_at %></td>
-                            <td><%= user.confirmation_token %></td>
                             <td><%= link_to "Show", show_user_path(user.id), class: "btn btn-primary", role: "button"  %></td>
-                            <td><%= button_to "Verify", approve_user_path(user.id), class: "btn btn-primary", method: :patch  %></td>
+                            <% if user.is_approved == 'verified'%>
+                                <td><%= button_to "Verify", approve_user_path(user.id), class: "btn btn-primary disabled", method: :patch  %></td>
+                            <% else %>
+                                <td><%= button_to "Verify", approve_user_path(user.id), class: "btn btn-primary", method: :patch  %></td>
+                            <% end %>
                         </tr>
                     <% end %>
                 </tbody>

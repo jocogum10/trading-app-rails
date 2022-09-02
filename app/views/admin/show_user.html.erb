@@ -2,12 +2,26 @@
 <div class="row m-2">
     <div class="card">
             <div class="card-header">
-                <%= @user.id %> | <%= @user.email %>
+                <%= @user.id %> | <%= @user.role.capitalize %>
             </div>
             <div class="card-body">
-                <h5 class="card-title"><%= @user.role %></h5>
-                <p class="card-text"><%= @user.is_approved %></p>
-                <p class="card-text"><%= @user.unconfirmed_email %></p>
+                <h4 class="card-title">
+                    <%= @user.email %>
+                    <% if @user.is_approved == 'verified'%>
+                        <span class="badge text-bg-success">Verified</span></h1>
+                    <% else %>
+                        <span class="badge text-bg-danger">Not Verified</span></h1>
+                    <% end %>
+                </h4>
+                
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Created: <%= @user.created_at %></li>
+                    <li class="list-group-item">Confirmed: <%= @user.confirmed_at %></li>
+                    <li class="list-group-item">Confirmation Token: <%= @user.confirmation_token %></li>
+                </ul>
+                
+                <%= link_to "Edit", edit_user_path, class: "btn btn-warning mt-4", role: "button"  %>
+                <%= link_to "Go to dashboard", dashboard_path, class: "btn btn-secondary mt-4", role: "button"  %>
             </div>
     </div>
 </div>

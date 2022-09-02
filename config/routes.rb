@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   authenticated :user, ->(user) { user.admin? } do
+    get 'admin', to: "admin#index", as: "dashboard"
     get 'admin/show_user/:id', to: "admin#show_user", as: "show_user"
     get 'admin/new_user', to: "admin#new_user", as: "new_user"
+    get 'admin/edit_user/:id', to: "admin#edit_user", as: "edit_user"
+
     post 'admin/', to: "admin#create_user", as: "create_user"
+
     patch 'admin/approve_user/:id', to: "admin#approve_user", as: "approve_user"
-    get 'admin', to: "admin#index", as: "dashboard"
+    
   end
   devise_for :users
   root "pages#home"
