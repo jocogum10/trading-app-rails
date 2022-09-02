@@ -53,7 +53,7 @@
                         <th scope="col">Created At</th>
                         <th scope="col">Confirmed At</th>
                         <th scope="col">Confirmation Token</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,11 +62,16 @@
                             <td><%= user.id %></td>
                             <td><%= user.email %></td>
                             <td><%= user.role %></td>
-                            <td><%= user.is_approved %></td>
+                            <% if user.is_approved == 'verified'%>
+                                <td class="text-success"><%= user.is_approved %></td>
+                            <% else %>
+                                <td class="text-danger"><%= user.is_approved %></td>
+                            <% end %>
                             <td><%= user.created_at %></td>
                             <td><%= user.confirmed_at %></td>
                             <td><%= user.confirmation_token %></td>
-                            <td><%= link_to "Show", show_user_path(user.id),class: "btn btn-primary"  %></td>
+                            <td><%= link_to "Show", show_user_path(user.id), class: "btn btn-primary", role: "button"  %></td>
+                            <td><%= button_to "Verify", approve_user_path(user.id), class: "btn btn-primary", method: :patch  %></td>
                         </tr>
                     <% end %>
                 </tbody>
@@ -108,6 +113,3 @@
     </div>
 </div>
 </div>
-
-<h1>Notes</h1>
-<p>http://localhost:3000/users/confirmation?confirmation_token=XrzYxkagz6Kyn6Pbqy3B</p>

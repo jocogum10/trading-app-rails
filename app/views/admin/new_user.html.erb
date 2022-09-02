@@ -33,7 +33,7 @@
 
     <div class="mb-3">
     <%= f.label :role, for: "role", class:"form-label" %>
-    <%= f.select :role, options_for_select([ "admin", "trader" ], "trader"), {}, {class: "form-select", id:"role"} %>
+    <%= f.select :role, User::ROLE_OPTIONS, {}, {class: "form-select", id:"role"} %>
     </div>
     
 

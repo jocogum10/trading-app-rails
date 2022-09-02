@@ -13,6 +13,13 @@ class User < ApplicationRecord
 
   after_initialize :set_default_is_approved, :if => :new_record?
 
+  validates :role, inclusion: {in: ['trader', 'admin']}
+
+  ROLE_OPTIONS = [
+      ['Trader', 'trader'],
+      ['Administrator', 'admin']
+  ]
+
   def set_default_role
     self.role ||= :user
   end

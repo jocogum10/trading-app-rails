@@ -1,3 +1,4 @@
+<% provide(:title, "New Transactions") %>
 <%= form_with scope: :transaction, url: create_transaction_path, local: true do |f| %>
 
     <h1 class="h3 mb-3 fw-normal mx-3">Transaction - Create New</h1>
@@ -29,7 +30,7 @@
 
     <div class="mb-3">
     <%= f.label :transaction_type, for: "transaction_type", class:"form-label" %>
-    <%= f.select :transaction_type, options_for_select([ "buy", "sell" ], "buy"), {}, {class: "form-select", id:"transaction_type"} %>
+    <%= f.select :transaction_type, Transaction::TRANSACTION_TYPE, {}, {class: "form-select", id:"transaction_type"} %>
     </div>
     
 

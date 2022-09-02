@@ -2,7 +2,7 @@ class AdminController < ApplicationController
   before_action :authenticate_user!
   def index
       @transactions = Transaction.all
-      @users = User.all
+      @users = User.all.order(is_approved: :asc, confirmed_at: :asc)
   end
 
   def show_user
@@ -23,9 +23,21 @@ class AdminController < ApplicationController
     end
   end
 
+  def approve_user
+    @user = User.find(params[:id])
+
+    if @user.confirmed_at.present?
+      @user.is_approved = 1
+      @user.save
+      redirect_to dashboard_path, notice: "User verified"
+    else
+      redirect_to dashboard_path, notice: "User is not yet confirmed"
+    end
+  end
+
   private
   def get_user
-      if User.find_by(id:current_user).trader?
+      if User.find_by(id:current_user).role == 'trader'
         redirect_to transactions_path
       elsif User.find_by(id:current_user).nil?
         raise ActionController::RoutingError.new('Not Found')
