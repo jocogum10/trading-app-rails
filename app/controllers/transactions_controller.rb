@@ -12,12 +12,16 @@ class TransactionsController < ApplicationController
     end
 
     def create
-        @transaction = @user.transactions.create(transaction_params)
+        if @user.is_approved == 'verified'
+            @transaction = @user.transactions.create(transaction_params)
 
-        if @transaction.save
-            redirect_to transactions_path
+            if @transaction.save
+                redirect_to transactions_path, notice: "Transactions saved!"
+            else
+                render :new
+            end
         else
-            render :new
+            redirect_to transactions_path, alert: "Transaction Failed! You are not yet verified."
         end
     end
 
@@ -26,9 +30,13 @@ class TransactionsController < ApplicationController
     end
 
     def delete
-        @transaction = @user.transactions.find(params[:id])
-        @transaction.destroy
-        redirect_to transactions_path
+        if @user.is_approved == 'verified'
+            @transaction = @user.transactions.find(params[:id])
+            @transaction.destroy
+            redirect_to transactions_path, notice: "Transactions deleted!"
+        else
+            redirect_to transactions_path, alert: "Transaction Failed! You are not yet verified."
+        end
     end
 
     private
@@ -44,4 +52,5 @@ class TransactionsController < ApplicationController
     def transaction_params
         params.require(:transaction).permit(:stock_symbol, :price, :lot_size, :transaction_type)
     end
+
 end

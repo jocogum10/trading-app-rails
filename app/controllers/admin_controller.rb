@@ -29,9 +29,9 @@ class AdminController < ApplicationController
     if @user.confirmed_at.present?
       @user.is_approved = 1
       @user.save
-      redirect_to dashboard_path, notice: "User verified"
+      redirect_to dashboard_path, notice: "User verified!"
     else
-      redirect_to dashboard_path, notice: "User is not yet confirmed"
+      redirect_to dashboard_path, alert: "User is not yet confirmed, see email sent."
     end
   end
 
