@@ -20,6 +20,11 @@ class User < ApplicationRecord
       ['Administrator', 'admin']
   ]
 
+  VERIFY_OPTIONS = [
+    ['Verified', 'verified'],
+    ['Not Verified', 'not_verified']
+]
+
   def set_default_role
     self.role ||= :user
   end

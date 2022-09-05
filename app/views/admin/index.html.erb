@@ -46,7 +46,6 @@
                 </caption>
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>
                         <th scope="col">Approved</th>
@@ -56,7 +55,6 @@
                 <tbody>
                     <% @users.each do |user| %>
                         <tr scope="row">
-                            <td><%= user.id %></td>
                             <td><%= user.email %></td>
                             <td><%= user.role %></td>
                             <% if user.is_approved == 'verified'%>
@@ -64,7 +62,7 @@
                             <% else %>
                                 <td class="text-danger"><%= user.is_approved %></td>
                             <% end %>
-                            <td><%= link_to "Show", show_user_path(user.id), class: "btn btn-primary", role: "button"  %></td>
+                            <td><%= link_to "Show Details", show_user_path(user.id), class: "btn btn-primary", role: "button"  %></td>
                             <% if user.is_approved == 'verified'%>
                                 <td><%= button_to "Verify", approve_user_path(user.id), class: "btn btn-primary disabled", method: :patch  %></td>
                             <% else %>

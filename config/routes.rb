@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post 'admin/', to: "admin#create_user", as: "create_user"
 
     patch 'admin/approve_user/:id', to: "admin#approve_user", as: "approve_user"
+    patch 'admin/edit_user/:id', to: "admin#update_user", as:"update_user"
     
   end
   devise_for :users

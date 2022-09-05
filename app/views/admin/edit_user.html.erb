@@ -1,1 +1,26 @@
 <h1>edit user</h1>
+<%= form_with scope: :user, url: update_user_path(@user.id), method: :patch, local: true do |f| %>
+    <% if @user.errors.any? %>
+        <div style="color: red">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+        <ul>
+            <% @user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <div class="mb-3">
+        <%= f.label :role, for: "role", class: "form-label" %>
+        <%= f.select :role, User::ROLE_OPTIONS, {}, {class: "form-select", id:"role"} %>
+    </div>
+
+    <div class="mb-3">
+        <%= f.label :is_approved, for: "is_approved", class: "form-label" %>
+        <%= f.select :is_approved, User::VERIFY_OPTIONS, {}, {class: "form-select", id:"is_approved"} %>
+    </div>
+
+    <%= f.submit "Update User" %>
+<% end %>

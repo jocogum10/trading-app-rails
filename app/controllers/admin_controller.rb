@@ -14,7 +14,7 @@ class AdminController < ApplicationController
   end
   
   def create_user
-    @user = User.create(user_params)
+    @user = User.create(user_create_params)
 
     if @user.save
         redirect_to dashboard_path
@@ -41,7 +41,7 @@ class AdminController < ApplicationController
 
   def update_user
     @user = User.find(params[:id])
-    @user.update(email: params[:user][:email], role: params[:user][:role], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+    @user.update(role: params[:user][:role], is_approved: params[:user][:is_approved])
     redirect_to dashboard_path
   end
 
@@ -54,7 +54,7 @@ class AdminController < ApplicationController
       end
   end
 
-  def user_params
+  def user_create_params
     params.require(:user).permit(:email, :role, :password, :password_confirmation)
   end
 end
