@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get 'admin/show_user/:id', to: "admin#show_user", as: "show_user"
     get 'admin/new_user', to: "admin#new_user", as: "new_user"
     get 'admin/edit_user/:id', to: "admin#edit_user", as: "edit_user"
+    get 'admin/send_email/:id', to: "admin#send_welcome_email", as: "send_welcome_email"
 
     post 'admin/', to: "admin#create_user", as: "create_user"
 

@@ -49,7 +49,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>
                         <th scope="col">Approved</th>
-                        <th scope="col" colspan="2">Action</th>
+                        <th scope="col" colspan="3">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,6 +68,7 @@
                             <% else %>
                                 <td><%= button_to "Verify", approve_user_path(user.id), class: "btn btn-primary", method: :patch  %></td>
                             <% end %>
+                            <td><%= link_to "Send mail", send_welcome_email_path(user.id), class: "btn btn-primary"  %></td>
                         </tr>
                     <% end %>
                 </tbody>

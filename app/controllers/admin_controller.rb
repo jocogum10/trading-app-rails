@@ -1,8 +1,14 @@
 class AdminController < ApplicationController
   before_action :authenticate_user!
   def index
-      @transactions = Transaction.all
-      @users = User.all.order(is_approved: :asc, confirmed_at: :asc)
+    @transactions = Transaction.all
+    @users = User.all.order(is_approved: :asc, confirmed_at: :asc)
+  end
+
+  def send_welcome_email
+    @user = User.find(params[:id])
+    AdminMailer.with(user: @user).welcome_email.deliver_later
+    redirect_to dashboard_path, notice: 'User was successfully created.'
   end
 
   def show_user
