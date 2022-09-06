@@ -15,7 +15,7 @@
     
     <div class="mb-3">
         <%= f.label :stock_symbol, for: "stock_symbol", class:"form-label" %>
-        <%= f.text_field :stock_symbol, class:"form-control", id:"stock_symbol" %>
+        <%= f.select :stock_symbol, @stocks, {}, class:"form-control", id:"stock_symbol" %>
     </div>
     
     <div class="mb-3">
