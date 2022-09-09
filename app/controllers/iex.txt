@@ -1,0 +1,63 @@
+#<IEX::Resources::Quote avg_total_volume=68831162 
+    calculation_price="close" 
+    change=3.17
+change_percent=0.03982
+change_percent_s="+3.98%"
+close_time=nil
+company_name="Advanced
+Micro
+Devices
+Inc."
+delayed_price=nil
+delayed_price_time=nil
+extended_change_percent=nil
+extended_change_percent_s=nil
+extended_price=nil
+extended_price_time=nil
+iex_ask_price=nil
+iex_ask_size=nil
+iex_bid_price=nil
+iex_bid_size=nil
+iex_last_updated=nil
+iex_last_updated_t=nil
+iex_market_percent=nil
+iex_realtime_price=nil
+iex_realtime_size=nil
+iex_volume=nil
+latest_price=82.78
+latest_source="Close"
+latest_time="September
+8,
+2022"
+latest_update=1662667200380
+latest_update_t=2022-09-09
+04:00:00
++0800
+latest_volume=nil
+market_cap=133633484102
+open_time=nil
+pe_ratio=36.31
+previous_close=79.61
+primary_exchange="NASDAQ"
+symbol="AMD"
+week_52_high=164.46
+week_52_low=71.6
+ytd_change=-0.3849194023627519>
+#<IEX::Resources::Quote
+avg_total_volume=69575873
+calculation_price="close"
+change=-1.5
+change_percent=-0.00962
+change_percent_s="-0.96%"
+close_time=nil
+company_name="Apple
+Inc"
+delayed_price=nil delayed_price_time=nil extended_change_percent=nil extended_change_percent_s=nil extended_price=nil extended_price_time=nil iex_ask_price=nil iex_ask_size=nil iex_bid_price=nil iex_bid_size=nil iex_last_updated=nil iex_last_updated_t=nil iex_market_percent=nil iex_realtime_price=nil iex_realtime_size=nil iex_volume=nil latest_price=154.46 latest_source="Close" latest_time="September 8, 2022" latest_update=1662667200162 latest_update_t=2022-09-09 04:00:00 +0800 latest_volume=nil market_cap=2482288353920 open_time=nil pe_ratio=25.53 previous_close=155.96 primary_exchange="NASDAQ" symbol="AAPL" week_52_high=182.19 week_52_low=128.86 ytd_change=-0.13616618741878164>
+#<IEX::Resources::Quote avg_total_volume=59236260 calculation_price="close" change=1.07 change_percent=0.09337 change_percent_s="+9.34%" close_time=nil company_name="Snap Inc - Class A" delayed_price=nil delayed_price_time=nil extended_change_percent=nil extended_change_percent_s=nil extended_price=nil extended_price_time=nil iex_ask_price=nil iex_ask_size=nil iex_bid_price=nil iex_bid_size=nil iex_last_updated=nil iex_last_updated_t=nil iex_market_percent=nil iex_realtime_price=nil iex_realtime_size=nil iex_volume=nil latest_price=12.53 latest_source="Close" latest_time="September 8, 2022" latest_update=1662667286169 latest_update_t=2022-09-09 04:01:26 +0800 latest_volume=nil market_cap=17475601638 open_time=nil pe_ratio=-24.27 previous_close=11.46 primary_exchange="NEW YORK STOCK EXCHANGE INC." symbol="SNAP" week_52_high=83.34 week_52_low=9.34 ytd_change=-0.6402043142674889>
+#<IEX::Resources::Quote avg_total_volume=56187724 calculation_price="close" change=2.76 change_percent=0.02013 change_percent_s="+2.01%" close_time=nil company_name="NVIDIA Corp" delayed_price=nil delayed_price_time=nil extended_change_percent=nil extended_change_percent_s=nil extended_price=nil extended_price_time=nil iex_ask_price=nil iex_ask_size=nil iex_bid_price=nil iex_bid_size=nil iex_last_updated=nil iex_last_updated_t=nil iex_market_percent=nil iex_realtime_price=nil iex_realtime_size=nil iex_volume=nil latest_price=139.9 latest_source="Close" latest_time="September 8, 2022" latest_update=1662667201024 latest_update_t=2022-09-09 04:00:01 +0800 latest_volume=nil market_cap=348351000000 open_time=nil pe_ratio=45.72 previous_close=137.14 primary_exchange="NASDAQ" symbol="NVDA" week_52_high=346.19 week_52_low=132.66 ytd_change=-0.5038745945975371>
+#<IEX::Resources::Quote avg_total_volume=55546993 calculation_price="close" change=0.04 change_percent=0.00259 change_percent_s="+0.26%" close_time=nil company_name="Ford Motor Co." delayed_price=nil delayed_price_time=nil extended_change_percent=nil extended_change_percent_s=nil extended_price=nil extended_price_time=nil iex_ask_price=nil iex_ask_size=nil iex_bid_price=nil iex_bid_size=nil iex_last_updated=nil iex_last_updated_t=nil iex_market_percent=nil iex_realtime_price=nil iex_realtime_size=nil iex_volume=nil latest_price=15.47 latest_source="Close" latest_time="September 8, 2022" latest_update=1662667392791 latest_update_t=2022-09-09 04:03:12 +0800 latest_volume=nil market_cap=61096992788 open_time=nil pe_ratio=5.35 previous_close=15.43 primary_exchange="NEW YORK STOCK EXCHANGE INC." symbol="F" week_52_high=25.32 week_52_low=10.51 ytd_change=-0.23625966419838126>
+#<IEX::Resources::Quote avg_total_volume=60087238 calculation_price="close" change=5.56 change_percent=0.0196 change_percent_s="+1.96%" close_time=nil company_name="Tesla Inc" delayed_price=nil delayed_price_time=nil extended_change_percent=nil extended_change_percent_s=nil extended_price=nil extended_price_time=nil iex_ask_price=nil iex_ask_size=nil iex_bid_price=nil iex_bid_size=nil iex_last_updated=nil iex_last_updated_t=nil iex_market_percent=nil iex_realtime_price=nil iex_realtime_size=nil iex_volume=nil latest_price=289.26 latest_source="Close" latest_time="September 8, 2022" latest_update=1662667200299 latest_update_t=2022-09-09 04:00:00 +0800 latest_volume=nil market_cap=906387545217 open_time=nil pe_ratio=34.77 previous_close=283.7 primary_exchange="NASDAQ" symbol="TSLA" week_52_high=414.5 week_52_low=206.86 ytd_change=-0.15924517118037812>
+#<IEX::Resources::Quote avg_total_volume=34727552 calculation_price="close" change=-0.1 change_percent=-0.00593 change_percent_s="-0.59%" close_time=nil company_name="AT&T, Inc." delayed_price=nil delayed_price_time=nil extended_change_percent=nil extended_change_percent_s=nil extended_price=nil extended_price_time=nil iex_ask_price=nil iex_ask_size=nil iex_bid_price=nil iex_bid_size=nil iex_last_updated=nil iex_last_updated_t=nil iex_market_percent=nil iex_realtime_price=nil iex_realtime_size=nil iex_volume=nil latest_price=16.77 latest_source="Close" latest_time="September 8, 2022" latest_update=1662667389171 latest_update_t=2022-09-09 04:03:09 +0800 latest_volume=nil market_cap=119570100000 open_time=nil pe_ratio=6.28 previous_close=16.87 primary_exchange="NEW YORK STOCK EXCHANGE INC." symbol="T" week_52_high=21.25 week_52_low=15.93 ytd_change=-0.0636363550036524>
+#<IEX::Resources::Quote avg_total_volume=17240959 calculation_price="close" change=-0.39 change_percent=-0.18932 change_percent_s="-18.93%" close_time=nil company_name="Globalstar Inc." delayed_price=nil delayed_price_time=nil extended_change_percent=nil extended_change_percent_s=nil extended_price=nil extended_price_time=nil iex_ask_price=nil iex_ask_size=nil iex_bid_price=nil iex_bid_size=nil iex_last_updated=nil iex_last_updated_t=nil iex_market_percent=nil iex_realtime_price=nil iex_realtime_size=nil iex_volume=nil latest_price=1.67 latest_source="Close" latest_time="September 8, 2022" latest_update=1662667200037 latest_update_t=2022-09-09 04:00:00 +0800 latest_volume=nil market_cap=3007670000 open_time=nil pe_ratio=-29.4 previous_close=2.06 primary_exchange="NYSE MKT LLC" symbol="GSAT" week_52_high=2.98 week_52_low=0.9025 ytd_change=0.2503351724137932>
+#<IEX::Resources::Quote avg_total_volume=16775391 calculation_price="close" change=3.63 change_percent=0.10917 change_percent_s="+10.92%" close_time=nil company_name="Rivian Automotive Inc - Class A" delayed_price=nil delayed_price_time=nil extended_change_percent=nil extended_change_percent_s=nil extended_price=nil extended_price_time=nil iex_ask_price=nil iex_ask_size=nil iex_bid_price=nil iex_bid_size=nil iex_last_updated=nil iex_last_updated_t=nil iex_market_percent=nil iex_realtime_price=nil iex_realtime_size=nil iex_volume=nil latest_price=36.88 latest_source="Close" latest_time="September 8, 2022" latest_update=1662667200788 latest_update_t=2022-09-09 04:00:00 +0800 latest_volume=nil market_cap=33500534392 open_time=nil pe_ratio=-1.6 previous_close=33.25 primary_exchange="NASDAQ" symbol="RIVN" week_52_high=179.47 week_52_low=19.25 ytd_change=-0.5351544285852059>
+#<IEX::Resources::Quote avg_total_volume=36122344 calculation_price="close" change=1.08 change_percent=0.03217 change_percent_s="+3.22%" close_time=nil company_name="Bank Of America Corp." delayed_price=nil delayed_price_time=nil extended_change_percent=nil extended_change_percent_s=nil extended_price=nil extended_price_time=nil iex_ask_price=nil iex_ask_size=nil iex_bid_price=nil iex_bid_size=nil iex_last_updated=nil iex_last_updated_t=nil iex_market_percent=nil iex_realtime_price=nil iex_realtime_size=nil iex_volume=nil latest_price=34.65 latest_source="Close" latest_time="September 8, 2022" latest_update=1662667202019 latest_update_t=2022-09-09 04:00:02 +0800 latest_volume=nil market_cap=278421032216 open_time=nil pe_ratio=10.79 previous_close=33.57 primary_exchange="NEW YORK STOCK EXCHANGE INC." symbol="BAC" week_52_high=49.26 week_52_low=29.48 ytd_change=-0.1755003908826072>

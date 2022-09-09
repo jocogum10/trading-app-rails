@@ -31,7 +31,13 @@ class TransactionsController < ApplicationController
             secret_token: 'sk_4fa4a6ff12c64c97839dca46df3b5406',
             endpoint: 'https://cloud.iexapis.com/v1'
         )
-        @stocks = client.stock_market_list(:mostactive).map{|stock| stock[:symbol]}
+        @top_stocks = client.stock_market_list(:mostactive)
+        # @stocks = top_stocks.map{|x| x["symbol"]}
+        # @prices = top_stocks.map{|x| x["latest_price"]}
+        # top_stocks.each do |x|
+        #     puts x["symbol"]
+        #     puts x["latest_price"]
+        # end
         @transaction = @user.transactions.new
     end
 
@@ -60,3 +66,5 @@ class TransactionsController < ApplicationController
     end
 
 end
+
+

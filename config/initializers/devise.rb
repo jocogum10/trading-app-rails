@@ -25,6 +25,7 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.navigational_formats = ['*/*', :html, :turbo_stream]
+  # config.mailer = 'AdminMailer'
   config.mailer_sender = 'admin@trading_app.com'
 
   # Configure the class responsible to send e-mails.
