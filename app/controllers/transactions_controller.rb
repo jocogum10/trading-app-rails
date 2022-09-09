@@ -32,12 +32,6 @@ class TransactionsController < ApplicationController
             endpoint: 'https://cloud.iexapis.com/v1'
         )
         @top_stocks = client.stock_market_list(:mostactive)
-        # @stocks = top_stocks.map{|x| x["symbol"]}
-        # @prices = top_stocks.map{|x| x["latest_price"]}
-        # top_stocks.each do |x|
-        #     puts x["symbol"]
-        #     puts x["latest_price"]
-        # end
         @transaction = @user.transactions.new
     end
 
