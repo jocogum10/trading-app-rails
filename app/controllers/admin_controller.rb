@@ -7,7 +7,7 @@ class AdminController < ApplicationController
 
   def send_welcome_email
     @user = User.find(params[:id])
-    AdminMailer.with(user: @user).welcome_email.deliver_now
+    AdminMailer.with(user: @user).welcome_email.deliver_later
     redirect_to dashboard_path, notice: 'User was successfully created.'
   end
 
@@ -35,6 +35,7 @@ class AdminController < ApplicationController
     if @user.confirmed_at.present?
       @user.is_approved = 1
       @user.save
+      AdminMailer.with(user: @user).verify_email.deliver_later
       redirect_to dashboard_path, notice: "User verified!"
     else
       redirect_to dashboard_path, alert: "User is not yet confirmed, see email sent."
