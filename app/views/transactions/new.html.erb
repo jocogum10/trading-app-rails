@@ -15,7 +15,7 @@
     
     <div class="mb-3">
         <%= f.label :stock_symbol, for: "stock_symbol", class:"form-label" %>
-        <%= f.select :stock_symbol, options_for_select(@top_stocks.map { |obj| [obj['symbol'].to_s + " @ " +  obj['latest_price'].to_s, obj['latest_price']] }), {}, class:"form-control", id:"stock_symbol" %>
+        <%= f.select :stock_symbol, options_for_select(@stocks.map { |stock| [stock['symbol'].to_s + " @ " + stock['price'].to_s, stock['symbol']] }), {}, class:"form-control", id:"stock_symbol" %>
     </div>
     
     <div class="mb-3">

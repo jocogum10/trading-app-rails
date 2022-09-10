@@ -79,7 +79,6 @@ Rails.application.configure do
     user_name:            '',
     password:             '',
     authentication:       'plain',
-    enable_starttls_auto: true,
     open_timeout:         5,
     read_timeout:         5 }
 

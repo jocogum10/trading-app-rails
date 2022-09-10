@@ -1,0 +1,27 @@
+<% provide(:title, "My Portfolio") %>
+<div class="table-responsive mx-3">
+    <table class="table align-middle caption-top">
+    <caption>My Portfolio</caption>
+        <thead>
+            <tr>
+                <th scope="col">Stock Symbol</th>
+                <th scope="col">Price</th>
+                <th scope="col">Lot Size</th>
+                <th scope="col">Transaction Type</th>
+                <th scope="col">Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @transactions.each do |transaction| %>
+                <tr scope="row">
+                    <td><%= transaction["stock_symbol"] %></td>
+                    <td><%= transaction["price"] %></td>
+                    <td><%= transaction["lot_size"] %></td>
+                    <td><%= transaction["transaction_type"] %></td>
+                    <td><%= transaction["total_price"] %> </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <h1><%= @sell_minus_buy %></h1>
+</div>

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get "/transactions/new", to: "transactions#new", as: "new_transaction"
   post "/transactions", to: "transactions#create", as: "create_transaction"
   delete '/transactions/:id', to: 'transactions#delete', as: 'delete_transaction'
+  get "transactions/portfolio/", to: "transactions#my_portfolio", as: "my_portfolio"
 
   get "pages/home", to: "pages#home", as: "pages_home"
   get "pages/about", to: "pages#about", as: "pages_about"

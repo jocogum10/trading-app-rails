@@ -26,12 +26,7 @@ class TransactionsController < ApplicationController
     end
 
     def new
-        client = IEX::Api::Client.new(
-            publishable_token: 'pk_357b98eff382413285d895c98242c6a8',
-            secret_token: 'sk_4fa4a6ff12c64c97839dca46df3b5406',
-            endpoint: 'https://cloud.iexapis.com/v1'
-        )
-        @top_stocks = client.stock_market_list(:mostactive)
+        @stocks = Stock.all
         @transaction = @user.transactions.new
     end
 
@@ -42,6 +37,26 @@ class TransactionsController < ApplicationController
             redirect_to transactions_path, notice: "Transactions deleted!"
         else
             redirect_to transactions_path, alert: "Transaction Failed! You are not yet verified."
+        end
+    end
+
+    def my_portfolio
+        test1 = {}
+        @sell_minus_buy = 0
+        @transactions = []
+        @user.transactions.each do |transaction|
+            test1["stock_symbol"] = transaction.stock_symbol
+            test1["price"] = transaction.price
+            test1["lot_size"] = transaction.lot_size
+            test1["transaction_type"] = transaction.transaction_type
+            test1["total_price"] = transaction.price * transaction.lot_size
+            @transactions.push(test1)
+            test1 = {}
+            if transaction.transaction_type = 'buy'
+                @sell_minus_buy = @sell_minus_buy - (transaction.price * transaction.lot_size)
+            else
+                @sell_minus_buy = @sell_minus_buy + (transaction.price * transaction.lot_size)
+            end
         end
     end
 
