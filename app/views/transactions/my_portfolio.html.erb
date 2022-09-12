@@ -1,27 +1,45 @@
 <% provide(:title, "My Portfolio") %>
-<div class="table-responsive mx-3">
-    <table class="table align-middle caption-top">
-    <caption>My Portfolio</caption>
-        <thead>
-            <tr>
-                <th scope="col">Stock Symbol</th>
-                <th scope="col">Price</th>
-                <th scope="col">Lot Size</th>
-                <th scope="col">Transaction Type</th>
-                <th scope="col">Total Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @transactions.each do |transaction| %>
-                <tr scope="row">
-                    <td><%= transaction["stock_symbol"] %></td>
-                    <td><%= transaction["price"] %></td>
-                    <td><%= transaction["lot_size"] %></td>
-                    <td><%= transaction["transaction_type"] %></td>
-                    <td><%= transaction["total_price"] %> </td>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
-    <h1><%= @sell_minus_buy %></h1>
+<div class="row">
+    <div class="col-md-8">
+        <div class="table-responsive mx-3">
+            <table class="table align-middle caption-top">
+            <caption>My Portfolio</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Stock Symbol</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Lot Size</th>
+                        <th scope="col">Transaction Type</th>
+                        <th scope="col">Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tbody class="table-group-divider">
+                    <% @transactions.each do |transaction| %>
+                        <tr scope="row">
+                            <td><%= transaction["stock_symbol"] %></td>
+                            <td><%= number_to_currency(transaction["price"]) %></td>
+                            <td><%= transaction["lot_size"] %></td>
+                            <td><%= transaction["transaction_type"] %></td>
+                            <td><%= number_to_currency(transaction["total_price"], negative_format: "(%u%n)") %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+    <div class="col mx-3 mt-5">
+        <div class="card text-center">
+        <div class="card-header">
+            Gain / Loss
+        </div>
+        <div class="card-body">
+            <h1 class="card-title"><%= number_to_currency(@sell_minus_buy, negative_format: "(%u%n)") %></h1>
+        </div>
+        <div class="card-footer text-muted">
+            Current Portfolio Gain
+        </div>
+        </div>
+    </div>
 </div>

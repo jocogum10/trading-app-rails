@@ -49,10 +49,14 @@ class TransactionsController < ApplicationController
             test1["price"] = transaction.price
             test1["lot_size"] = transaction.lot_size
             test1["transaction_type"] = transaction.transaction_type
-            test1["total_price"] = transaction.price * transaction.lot_size
+            if transaction.transaction_type == 'buy'
+                test1["total_price"] = (transaction.price * transaction.lot_size)*(-1)
+            else
+                test1["total_price"] = transaction.price * transaction.lot_size
+            end
             @transactions.push(test1)
             test1 = {}
-            if transaction.transaction_type = 'buy'
+            if transaction.transaction_type == 'buy'
                 @sell_minus_buy = @sell_minus_buy - (transaction.price * transaction.lot_size)
             else
                 @sell_minus_buy = @sell_minus_buy + (transaction.price * transaction.lot_size)

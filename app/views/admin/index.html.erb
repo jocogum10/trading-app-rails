@@ -6,7 +6,7 @@
                 User Statistics
             </div>
             <div class="card-body">
-                <h5 class="card-title">Total users: <%= User.count %></h5>
+                <h1 class="card-title">Total users: <%= User.count %></h1>
                 <p class="card-text">
                     Verified users: ( <%= User.where(is_approved: "verified").count %> ) | Not verified users: ( <%= User.where(is_approved: "not_verified").count %> )
                 </p>
@@ -19,7 +19,7 @@
                 Transaction Statistics
             </div>
             <div class="card-body">
-                <h5 class="card-title">Total transactions: <%= Transaction.count %></h5>
+                <h1 class="card-title">Total transactions: <%= Transaction.count %></h1>
                 <p class="card-text">
                 Buy Transactions: ( <%= Transaction.where(transaction_type: "buy").count %> ) | Sell transactions: ( <%= Transaction.where(transaction_type: "sell").count %> )
                 </p>
@@ -53,6 +53,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tbody class="table-group-divider">
                     <% @users.each do |user| %>
                         <tr scope="row">
                             <td><%= user.email %></td>
@@ -92,13 +93,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tbody class="table-group-divider">
                     <% @transactions.each do |transaction| %>
                         <tr scope="row">
                             <td><%= transaction.id %></td>
                             <td><%= transaction.user_id %></td>
                             <td><%= transaction.user.email %></td>
                             <td><%= transaction.stock_symbol %></td>
-                            <td><%= transaction.price %></td>
+                            <td><%= number_to_currency(transaction.price) %></td>
                             <td><%= transaction.lot_size %></td>
                             <td><%= transaction.transaction_type %></td>
                             <td><%= button_to "Delete", delete_transaction_path(transaction.id), {method: :delete, class: "btn btn-danger"}  %></td>

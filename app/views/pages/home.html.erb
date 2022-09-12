@@ -25,11 +25,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                <tbody class="table-group-divider">
                     <% @stocks.each do |stock| %>
                         <tr>
                             <th scope="row"><%= stock.symbol %></th>
                             <td><%= stock.name %></td>
-                            <td><%= stock.price %></td>
+                            <td><%= number_to_currency(stock.price) %></td>
                         </tr>
                     <% end %>
                 </tbody>
