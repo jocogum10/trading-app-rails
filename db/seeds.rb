@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 client = IEX::Api::Client.new(
-    publishable_token: 'pk_357b98eff382413285d895c98242c6a8',
-    secret_token: 'sk_4fa4a6ff12c64c97839dca46df3b5406',
+    publishable_token: ENV['IEX_TOKEN'],
+    secret_token: ENV['IEX_SECRET_TOKEN'],
     endpoint: 'https://cloud.iexapis.com/v1'
 )
 top_stocks = client.stock_market_list(:mostactive)

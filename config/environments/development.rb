@@ -76,8 +76,8 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'example.com',
-    user_name:            '',
-    password:             '',
+    user_name:            ENV['ADMIN_EMAIL'],
+    password:             ENV['ADMIN_PASS_KEY'],
     authentication:       'plain',
     open_timeout:         5,
     read_timeout:         5 }

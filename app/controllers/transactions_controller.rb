@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
     before_action :authenticate_user!
-    before_action :get_user
+    before_action :get_user, except: [:delete]
     def index
         if @user.role == 'trader'
             @transactions = @user.transactions
@@ -31,13 +31,9 @@ class TransactionsController < ApplicationController
     end
 
     def delete
-        if @user.is_approved == 'verified'
-            @transaction = @user.transactions.find(params[:id])
-            @transaction.destroy
-            redirect_to transactions_path, notice: "Transactions deleted!"
-        else
-            redirect_to transactions_path, alert: "Transaction Failed! You are not yet verified."
-        end
+        @transaction = Transaction.find(params[:id])
+        @transaction.destroy
+        redirect_to transactions_path, notice: "Transactions deleted!"
     end
 
     def my_portfolio
