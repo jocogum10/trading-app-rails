@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   before_action :authenticate_user!
+  before_action :get_user
   def index
     @transactions = Transaction.all
     @users = User.all.order(is_approved: :asc, confirmed_at: :asc)

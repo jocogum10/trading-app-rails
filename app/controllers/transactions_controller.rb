@@ -37,26 +37,42 @@ class TransactionsController < ApplicationController
     end
 
     def my_portfolio
-        test1 = {}
-        @sell_minus_buy = 0
+        transaction_by_stock_symbol = {
+        }
+        # the stocks portfolio
         @transactions = []
         @user.transactions.each do |transaction|
-            test1["stock_symbol"] = transaction.stock_symbol
-            test1["price"] = transaction.price
-            test1["lot_size"] = transaction.lot_size
-            test1["transaction_type"] = transaction.transaction_type
-            if transaction.transaction_type == 'buy'
-                test1["total_price"] = (transaction.price * transaction.lot_size)*(-1)
+            if transaction_by_stock_symbol.key?(transaction.stock_symbol)
+                transaction_by_stock_symbol[transaction.stock_symbol].push(transaction)
             else
-                test1["total_price"] = transaction.price * transaction.lot_size
+                transaction_by_stock_symbol[transaction.stock_symbol] = [transaction]
             end
-            @transactions.push(test1)
-            test1 = {}
-            if transaction.transaction_type == 'buy'
-                @sell_minus_buy = @sell_minus_buy - (transaction.price * transaction.lot_size)
-            else
-                @sell_minus_buy = @sell_minus_buy + (transaction.price * transaction.lot_size)
+        end
+        @total_stock_price = 0
+        transaction_by_stock_symbol.each do |stock_symbol, transactions|
+            total_buy_lot = 0
+            total_sell_lot = 0
+            
+            total_buy_price = 0
+            total_sell_price = 0
+            transactions.each do |transaction|
+                puts transaction.transaction_type
+                if transaction.transaction_type == 'buy'
+                    total_buy_lot = total_buy_lot + transaction.lot_size
+                    total_buy_price = total_buy_price + (transaction.lot_size*transaction.price)
+                else
+                    total_sell_lot = total_sell_lot + transaction.lot_size
+                    total_sell_price = total_sell_price + (transaction.lot_size*transaction.price)
+                end
             end
+            puts total_buy_lot
+            puts total_sell_lot
+            if total_buy_lot > total_sell_lot
+                @transactions.push({stock_symbol: stock_symbol, lot_size: total_buy_lot-total_sell_lot, total_price: total_buy_price-total_sell_price})
+            end
+        end
+        @transactions.each do |stock|
+            @total_stock_price = @total_stock_price + stock[:total_price]
         end
     end
 
