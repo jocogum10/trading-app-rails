@@ -29,4 +29,23 @@ $ rails server
 ```
 
 ## UI
-![login](https://github.com/jocogum10/journal-app-rails-scaffold/blob/main/app/assets/images/login.PNG)
+### Login
+![login](https://github.com/jocogum10/trading-app-rails/blob/main/app/assets/images/login.PNG)
+
+### Signup
+![signup](https://github.com/jocogum10/trading-app-rails/blob/main/app/assets/images/sign%20up.PNG)
+
+### Homepage
+![home](https://github.com/jocogum10/trading-app-rails/blob/main/app/assets/images/homepage.PNG)
+
+### Admin - Homepage
+![admin homepage](https://github.com/jocogum10/trading-app-rails/blob/main/app/assets/images/adminhomepage.PNG)
+
+### Admin - Dashboard
+![admin dashboard](https://github.com/jocogum10/trading-app-rails/blob/main/app/assets/images/admindashboard.PNG)
+
+### User - Homepage
+![user homepage](https://github.com/jocogum10/trading-app-rails/blob/main/app/assets/images/userhomepage.PNG)
+
+### User - Portfolio
+![user portfolio](https://github.com/jocogum10/trading-app-rails/blob/main/app/assets/images/userportfolio.PNG)
